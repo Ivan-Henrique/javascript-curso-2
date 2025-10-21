@@ -13,8 +13,17 @@ function verificarChute(){
     
     if (chute == numeroSecreto){
       exebirTextoNatela('h1','acertou!')
+      exebirTextoNatela('p1','voce descobriu o numero secreto! ')
+    } else {
+  if (chute > numeroSecreto){
+      exebirTextoNatela('p','O numero secreto é menor');
+      } else {
+      exebirTextoNatela('p','O numero secreto é menor');
+      }
+
+
     }
-    
+}
 
 function gerarNumeroAleatorio(){
   return parseInt  (mach.random() * 10 + 1);
@@ -31,5 +40,3 @@ function gerarNumeroAleatorio(){
 
 
 
-onsole.log('chute == numeroSecreto');
-    }
