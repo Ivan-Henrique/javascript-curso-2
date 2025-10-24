@@ -1,4 +1,5 @@
-let numeroSecreto = 7;
+let numeroSecreto = 2;
+let tentativas = 1;
 
 function exebirTextoNatela(tag){
     let campo = document.querySelector(tag);
@@ -13,18 +14,20 @@ function verificarChute(){
     
     if (chute == numeroSecreto){
       exebirTextoNatela('h1','acertou!')
-      let mensagemTentativas = `Vocẽ descobriu o numero secreto com 5 tentativas´
+      let palavrastentativa = tentativa > 1 ? 'tentativas' : 
+      'tentativa'
+     let mensagemTentativas = `Vocẽ descobriu o numero secreto com ${tentativas} ${palavrastentativa} tentativas!`;
       
-      exebirTextoNatela('p1','Vocẽ descobriu o numero secreto com 5 tentativas')
-
+      exebirTextoNatela('p','mensagemTentativas');
+      document.getElementById('reniciar').removeAttribute('disabled');
     } else {
   if (chute > numeroSecreto){
       exebirTextoNatela('p','O numero secreto é menor');
       } else {
       exebirTextoNatela('p','O numero secreto é menor');
       }
-
-
+      tentativas++;
+      limparCampo();
     }
 }
 
@@ -32,13 +35,13 @@ function gerarNumeroAleatorio(){
   return parseInt  (mach.random() * 10 + 1);
 }
 
+function limparCampo() {
+  chute = document.querySelector('input');
+  chute.value = '';
+}
 
-
-
-
-
-
-
-
-
-
+function reniciarJogo(){
+  numeroSecreto = gerarNumeroAleatorio();
+  limparCampo();
+  tentativas = 1;      
+}
