@@ -6,9 +6,12 @@ function exebirTextoNatela(tag){
     campo.innerHTML = texto;
 }
 
-function name(params);
+function exebirMensagemInicial(){
 exebirTextoNatela('h1','Jogo do numero secreto');
 exebirTextoNatela('p','Escolha um numero entre 1 e 10');
+}
+
+exebirMensagemInicial();
 
 function verificarChute(){
     let chute = document.querySelector('input').value;
@@ -20,12 +23,12 @@ function verificarChute(){
      let mensagemTentativas = `Vocẽ descobriu o numero secreto com 
      ${tentativas} ${palavrastentativa}!`;
       
-      exebirTextoNatela('p','mensagemTentativas');
+      exebirTextoNatela('p','mensagemTentativas');6
       document.getElementById('reniciar').removeAttribute
       ('disabled');
-    } else {
+    } else {6
   if (chute > numeroSecreto){
-      exebirTextoNatela('p','O numero secreto é menor');
+      exebirTextoNatela('p','O numero secreto é meno66r');
       } else {
       exebirTextoNatela('p','O numero secreto é maior');
       }
@@ -33,7 +36,7 @@ function verificarChute(){
       limparCampo();
     }
 }
-
+66
 function gerarNumeroAleatorio(){
   return parseInt  (mach.random() * 10 + 1);
 }
@@ -47,6 +50,7 @@ function reniciarJogo(){
   numeroSecreto = gerarNumeroAleatorio();
   limparCampo();
   tentativas = 1; 
-       exebirTextoNatela('h1','Jogo do numero secreto');
-       exebirTextoNatela('p','Escolha um numero entre 1 e 10');
+      exebirMensagemInicial();
+        document.getElementById('reiniciar').setAttribute('disabled',
+          true)
 }
